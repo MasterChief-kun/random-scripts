@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    listProcEmacs=$(ps -ef | grep 'emacs --daemon')
+
+    divStrEmacs=($listProcEmacs)
+
+    kill ${divStrEmacs[1]}
+else
+    listProc=$(ps -ef | grep "$1")
+    divStr=($listProc)
+    kill ${divStr[1]}
+fi
